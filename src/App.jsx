@@ -1,10 +1,13 @@
+
 import MasPopulares from "./pages/MasPopulares";
 
 function App() {
  
   return (
     <>
+      
       <MasPopulares />
+      
     </>
   )
 }

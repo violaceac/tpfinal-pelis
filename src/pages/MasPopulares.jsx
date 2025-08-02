@@ -1,18 +1,16 @@
 import { useEffect } from "react";
-import useMasPopulares from "../hooks/useMasPopulares";
+import usePeliculas from "../hooks/usePeliculas";
+import axios from "axios";
 
 export default function MasPopulares() {
   const {
-    obtenerPeliculasPopulares,
-    pelisMasPopulares,
-    setPelisMasPopulares,
+    obtenerMasPopulares,
+    pelis,
     pagina,
-    setPagina,
     paginaAnterior,
     paginaSiguiente,
     totalPaginas,
-    setTotalPaginas
-  } = useMasPopulares();
+  } = usePeliculas();
 
   {/*useEffect(() => {
   obtenerPeliculasPopulares(pagina).then(data =>{
@@ -25,30 +23,29 @@ export default function MasPopulares() {
  }, [pagina]);*/}
 
  useEffect (()=> {
-  const populares = async ()=>{
-    obtenerPeliculasPopulares(pagina);
-    try{
-      const response= await axios (
-        `${url}?api_key=${apiKey}&page=${pagina}`
-      );
-      const data = await response.json();
-      setPelisMasPopulares(data.results);
-      setTotalPaginas(data.total_pages);
-    }catch (error){
-      console.log(error)
-    }
+    obtenerMasPopulares();
+    // try{
+    //   const response= await axios (
+    //     `${url}?api_key=${apiKey}&page=${pagina}`
+    //   );
+    //   const data = await response.json();
+    //   setPelisMasPopulares(data.results);
+    //   setTotalPaginas(data.total_pages);
+    // }catch (error){
+    //   console.log(error)
+    // }
   }
-  populares()
- },[pagina]);
+ ,[pagina]);
 
- const manejoDePagina= (numeroPagina)=>{
-  setPagina(numeroPagina);
- }
+//  const manejoDePagina= (numeroPagina)=>{
+//   setPagina(numeroPagina);
+  
+// }
 
 
   return (<>
     <div>
-      {pelisMasPopulares.map((peli) => (
+      {pelis.map((peli) => (
       <div key={peli.id} >
         <img
           src={`https://image.tmdb.org/t/p/w300${peli.poster_path}`}
@@ -62,9 +59,9 @@ export default function MasPopulares() {
   <div>
     <h2>Probando Paginación</h2>
   <div>
-    <button onClick={()=>manejoDePagina(pagina -1)}>Anterior</button>
+    <button onClick={paginaAnterior} disabled={pagina < 1}>Anterior</button>
         <span>Página {pagina} de {totalPaginas}</span>
-        <button onClick={()=>manejoDePagina(pagina +1)}>Siguiente</button>
+        <button onClick={paginaSiguiente} disabled={pagina === totalPaginas}>Siguiente</button>
       </div>
     </div>
     </>
@@ -76,6 +73,5 @@ export default function MasPopulares() {
 
 
 
-//api key c3b22d6747c3bcd1016c2dbac5dfd3bb
 
-//token de acceso zeyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjM2IyMmQ2NzQ3YzNiY2QxMDE2YzJkYmFjNWRmZDNiYiIsIm5iZiI6MTc1MzQ4MTM5NS4yNzQsInN1YiI6IjY4ODQwMGIzOTIwZWNhZjI5ZjI0NjFlOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ._sPSNG-VaSfr0c5ASQdVKxfIik2TzYnokOMXHacjG_4
+
