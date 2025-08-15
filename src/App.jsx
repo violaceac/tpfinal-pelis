@@ -7,7 +7,7 @@ function App() {
     <>
       
         <MasPopulares />
-       
+        <UltimosLanzamientos />
     
       
     </>
