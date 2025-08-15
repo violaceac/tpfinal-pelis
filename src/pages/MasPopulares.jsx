@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import usePeliculas from "../hooks/usePeliculas";
-import axios from "axios";
+
 
 export default function MasPopulares() {
   const {
@@ -24,26 +24,12 @@ export default function MasPopulares() {
 
  useEffect (()=> {
     obtenerMasPopulares();
-    // try{
-    //   const response= await axios (
-    //     `${url}?api_key=${apiKey}&page=${pagina}`
-    //   );
-    //   const data = await response.json();
-    //   setPelisMasPopulares(data.results);
-    //   setTotalPaginas(data.total_pages);
-    // }catch (error){
-    //   console.log(error)
-    // }
   }
  ,[pagina]);
 
-//  const manejoDePagina= (numeroPagina)=>{
-//   setPagina(numeroPagina);
-  
-// }
-
 
   return (<>
+    <h2>Mas Populares</h2>
     <div>
       {pelis.map((peli) => (
       <div key={peli.id} >
@@ -55,13 +41,13 @@ export default function MasPopulares() {
         <h3>{peli.title}</h3>
       </div>
     ))}
-  </div>
-  <div>
-    <h2>Probando Paginación</h2>
-  <div>
-    <button onClick={paginaAnterior} disabled={pagina < 1}>Anterior</button>
-        <span>Página {pagina} de {totalPaginas}</span>
-        <button onClick={paginaSiguiente} disabled={pagina === totalPaginas}>Siguiente</button>
+    </div>
+    <div>
+      <h2>Probando Paginación</h2>
+      <div>
+        <button onClick={paginaAnterior} disabled={pagina < 1}>Anterior</button>
+           <span>Página {pagina} de {totalPaginas}</span>
+           <button onClick={paginaSiguiente} disabled={pagina === totalPaginas}>Siguiente</button>
       </div>
     </div>
     </>

@@ -6,41 +6,62 @@ export default function usePeliculas() {
 
     const [pelis, setPelis] = useState([])
     const [pagina, setPagina] = useState(1)
-    const [totalPaginas, setTotalPaginas] = useState(1);
-    
-
-    
+    const [totalPaginas, setTotalPaginas] = useState(1)
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+     
     //funcion para obtener peliculas populares
-    async function obtenerMasPopulares(){
+    async function obtenerPeliculas(tipo){
       const apiKey = import.meta.env.VITE_API_KEY_PELICULAS;
-      const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=es-ES&page=${pagina}`;
+      const url = `https://api.themoviedb.org/3/movie/${tipo}?api_key=${apiKey}&language=es-ES&page=${pagina}`;
       
       try {
             const {data} = await axios.get(url)
             console.log (data)
-            setPelis(data.results)
-            setTotalPaginas(data.total_pages)
+            setPelis(data.results);
+            setTotalPaginas(data.total_pages);
+            setLoading(true);
+            setError(null);
           } catch (error) {
-            console.error("Error al obtener peliculas")
+            setError("Error al obtener peliculas");
+            setLoading(false)
           }
+
+      
+    }
+    
+    //obtener peliculas populares
+    function obtenerMasPopulares(){
+      obtenerPeliculas("popular")
+    }
+
+    //obtener ultimos lanzamientos
+    function obtenerUltimosLanzamientos(){
+      obtenerPeliculas("now_playing")
+    }
+
+      // Paginacion
+    function paginaAnterior() {
+      if (pagina > 1) setPagina(pagina - 1);
     }
       
-        function paginaAnterior() {
-          if (pagina > 1) setPagina(pagina - 1);
-        }
+    function paginaSiguiente() {
+      if (pagina < totalPaginas) setPagina(pagina + 1);
+    }     
       
-        function paginaSiguiente() {
-          if (pagina < totalPaginas) setPagina(pagina + 1);
-        }
+  
+
     
-        const data = {
-          pelis,
-          pagina,
-          totalPaginas,
-          obtenerMasPopulares,
-          paginaAnterior,
-          paginaSiguiente
-        }
+    const data = {
+      pelis,
+      pagina,
+      totalPaginas,
+      obtenerMasPopulares,
+      obtenerUltimosLanzamientos,
+      paginaAnterior,
+      paginaSiguiente
+    
+    }
   
     return data
   }
