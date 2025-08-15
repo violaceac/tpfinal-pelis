@@ -1,5 +1,6 @@
-
 import MasPopulares from "./pages/MasPopulares";
+import UltimosLanzamientos from "./pages/UltimosLanzamientos";
+
 
 function App() {
  
@@ -7,7 +8,7 @@ function App() {
     <>
       
       <MasPopulares />
-      
+      <UltimosLanzamientos />
     </>
   )
 }
