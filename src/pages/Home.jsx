@@ -1,15 +1,15 @@
-import React from 'react'
-import ListaMasPopulares from '../components/ListaMasPopulares'
+import Slider from "../components/Slider"
+import ListaMasPopulares from "../components/ListaMasPopulares"
+import ListaMejorPuntadas from "../components/ListaMejorPuntadas"
 
 function Home() {
+
   return (
     <>
-    <h1>Home</h1>
-    <h1>slider</h1>
-    <h1>ListaMasPopulares</h1>
-    <h1>ListaMejorPuntadas</h1>
+    {/* <Slider /> */}
+    <ListaMasPopulares />
+    {/* <ListaMejorPuntadas /> */}
     </>
-    
   )
 }
 

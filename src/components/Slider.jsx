@@ -1,12 +1,35 @@
-import React from 'react'
+import { useEffect } from 'react';
+import usePelis from "../hooks/usePelis";
+
+
+
 
 function Slider() {
 
-    //aca deberia hacer el axios y traer los ultimos lanzamientos para reflejarlos dentro del componente y despues ver como resuelvo el slider con mui
+  const { pelis, obtenerPelis } = usePelis();
+
+useEffect(() => {
+  
+  obtenerPelis("now_playing")
+}, []);
 
   return (
-    <div>Slider</div>
-  )
+
+    <div>
+    {pelis.map((peli)=> (
+      <img
+        key={peli.id}
+        src={`https://image.tmdb.org/t/p/w500${peli.backdrop_path}`}
+        alt={peli.title}
+        className="w-full object-cover"
+      />
+      ))}
+    </div>
+
+
+  );
+  
+  
 }
 
 export default Slider

@@ -1,12 +1,17 @@
 
-import './App.css'
-import Home from './pages/Home'
+import Router from "./router/Router"
+
+import FavoriteContextProvider from "./context/FavoriteContext"
 
 function App() {
 
+
   return (
     <>
-    <Home />
+    <FavoriteContextProvider>
+      <Router />
+    </FavoriteContextProvider>
+     
     </>
   )
 }
