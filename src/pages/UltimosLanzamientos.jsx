@@ -3,7 +3,7 @@ import usePeliculas from "../hooks/usePeliculas";
 
 export default function ultimosLanzamientos() {
   const {
-    obtenerUltimosLanzamientos,
+    obtenerPeliculas,
     pelis,
     pagina,
     paginaAnterior,
@@ -12,7 +12,7 @@ export default function ultimosLanzamientos() {
   } = usePeliculas();
 
   useEffect (()=>{
-    obtenerUltimosLanzamientos();
+    obtenerPeliculas("now_playing")
   },[pagina]);
 
 
