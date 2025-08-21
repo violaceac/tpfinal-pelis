@@ -7,8 +7,10 @@ function App() {
   return (
     <>
       
+
       <MasPopulares />
       <UltimosLanzamientos />
+
     </>
   )
 }
