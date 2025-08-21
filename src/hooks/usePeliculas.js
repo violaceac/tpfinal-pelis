@@ -40,6 +40,7 @@ export default function usePeliculas() {
       
     function paginaSiguiente() {
       if (pagina < totalPaginas) setPagina(pagina + 1);
+
     }  
     
     //detalle pelicula
@@ -72,6 +73,7 @@ export default function usePeliculas() {
       paginaAnterior,
       paginaSiguiente
     
+
     }
   
     return data
