@@ -51,6 +51,7 @@ export default function usePeliculas() {
       totalPaginas,
       loading,
       error,
+      obtenerPeliculas,
       paginaAnterior,
       paginaSiguiente
     
