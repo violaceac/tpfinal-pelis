@@ -4,7 +4,7 @@ import usePeliculas from "../hooks/usePeliculas";
 
 export default function MasPopulares() {
   const {
-    obtenerMasPopulares,
+    obtenerPeliculas,
     pelis,
     pagina,
     paginaAnterior,
@@ -23,7 +23,7 @@ export default function MasPopulares() {
  }, [pagina]);*/}
 
  useEffect (()=> {
-    obtenerMasPopulares();
+    obtenerPeliculas("popular");
   }
  ,[pagina]);
 

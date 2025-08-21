@@ -7,10 +7,12 @@ export default function usePeliculas() {
     const [pelis, setPelis] = useState([])
     const [pagina, setPagina] = useState(1)
     const [totalPaginas, setTotalPaginas] = useState(1)
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(null)
+    const [peliculaDetalle, setPeliculaDetalle] = useState(null)
+    
      
-    //funcion para obtener peliculas populares
+    //funcion para obtener peliculas 
     async function obtenerPeliculas(tipo){
       const apiKey = import.meta.env.VITE_API_KEY_PELICULAS;
       const url = `https://api.themoviedb.org/3/movie/${tipo}?api_key=${apiKey}&language=es-ES&page=${pagina}`;
@@ -30,17 +32,8 @@ export default function usePeliculas() {
       
     }
     
-    //obtener peliculas populares
-    function obtenerMasPopulares(){
-      obtenerPeliculas("popular")
-    }
-
-    //obtener ultimos lanzamientos
-    function obtenerUltimosLanzamientos(){
-      obtenerPeliculas("now_playing")
-    }
-
-      // Paginacion
+    
+     // Paginacion
     function paginaAnterior() {
       if (pagina > 1) setPagina(pagina - 1);
     }
@@ -56,8 +49,8 @@ export default function usePeliculas() {
       pelis,
       pagina,
       totalPaginas,
-      obtenerMasPopulares,
-      obtenerUltimosLanzamientos,
+      loading,
+      error,
       paginaAnterior,
       paginaSiguiente
     
