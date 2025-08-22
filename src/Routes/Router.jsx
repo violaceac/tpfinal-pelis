@@ -1,22 +1,27 @@
-import { BrowserRouter, Route, Routes } from "react-router";
+import { BrowserRouter, Routes, Route } from "react-router"
+
 import Home from "../pages/Home"
 import UltimosLanzamientos from "../pages/UltimosLanzamientos"
+import MasPopulares from "../pages/MasPopulares"
+import PelisFavoritas from "../pages/PelisFavoritas"
 import Buscador from "../pages/Buscador"
-import DetallePelicula from "../pages/DetallePelicula";
+import DetallePelicula from "../pages/DetallePelicula"
 
-export default function Router() {
-  return (
-  <BrowserRouter>
-    <Routes>
-      <Route path="/">
-       <Route index element={<Home />}>
-        <Route path="/UltimosLanzamientos" element={<UltimosLanzamientos />} />
-        <Route path="/Populares" element={<MasPopulares />} />
-        <Route path="/Buscar" element={<Buscador />} />
-        <Route path="/pelicula/:id" element={<DetallePelicula />} />
-       </Route>
-      </Route>
-    </Routes>
-  </BrowserRouter>
-  )
+
+function Router() {
+    return(
+        <BrowserRouter>
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/lanzamientos" element={<UltimosLanzamientos />} />
+            <Route path="/populares" element={<MasPopulares />} />
+            <Route path="/favoritos" element={<PelisFavoritas />} />
+            <Route path="/buscar" element={<Buscador />} />
+            <Route path="/pelicula/:id" element={<DetallePelicula />} />
+        </Routes>
+        </BrowserRouter>
+    )
 }
+
+export default Router
+

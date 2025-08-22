@@ -37,7 +37,15 @@ useEffect (()=>{
   }
 ,[id])
 
-//si esta cargando , muestra cargando . 17/8 
+useEffect(() => {
+  if (peliculaDetalle) {
+    console.log('Datos completos de la película:', peliculaDetalle);
+    console.log('Videos disponibles:', peliculaDetalle.videos);
+    console.log('Results de videos:', peliculaDetalle.videos?.results);
+  }
+}, [peliculaDetalle]);
+
+//si esta cargando , muestra cargando . 17/8
 if(loading) {
    return <div>Cargando...</div> 
 }
@@ -56,10 +64,10 @@ const trailer = peliculaDetalle.videos?.results?.find(
    (v) => v.type === "Trailer" && v.site === "YouTube"
   );
 
+
+
 const trailerUrl = trailer ? `https://www.youtube.com/watch?v=${trailer.key}` : null;
 console.log(trailerUrl);
-
-
 
 return (
    <div>
@@ -85,7 +93,6 @@ return (
     <ReactPlayer
       slot="media"
       src={trailerUrl}
-      playing
       controls={false}
       width="100%"
       height="100%"

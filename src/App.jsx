@@ -1,14 +1,16 @@
-import DetallePelicula from "./pages/DetallePelicula"
-// import MasPopulares from "./pages/MasPopulares";
+import Router from "./Routes/Router"
+
+import FavoriteContextProvider from "./context/FavoriteContext"
+
 
 function App() {
  
   return (
-    <>
-      
-      {/* <MasPopulares /> */}
-      <DetallePelicula />
-      
+  <>
+    <FavoriteContextProvider>
+      <Router />
+    </FavoriteContextProvider>
+     
     </>
   )
 }
