@@ -6,9 +6,9 @@ function Home() {
 
   return (
     <>
-    {/* <Slider /> */}
-    <ListaMasPopulares />
-    {/* <ListaMejorPuntadas /> */}
+    <Slider />
+    {/* <ListaMasPopulares />
+    <ListaMejorPuntadas /> */}
     </>
   )
 }

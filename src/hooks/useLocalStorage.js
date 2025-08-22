@@ -1,26 +1,36 @@
-import React from 'react'
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 
 function useLocalStorage() {
 
-    const [ls, setLs] = useState([])
-
-    function set(datos) {
-        return localStorage.setItem("favoritos", JSON.stringify(datos))
+    const getInitialData = () => {
+        const item = localStorage.getItem("favoritos");
+        return item ? JSON.parse(item) : []; 
     }
+            
+    const [ls, setLs] = useState(getInitialData);
 
-    function get() {
-       const datosObtenidosDeLs = JSON.parse(localStorage.getItem("favoritos"))
-       setLs(datosObtenidosDeLs)
-       return datosObtenidosDeLs
+    const set = useCallback((datos) => {
+        setLs(datos);
+        localStorage.setItem("favoritos", JSON.stringify(datos));
+    }, []);
+
+    const get = useCallback(() => {
+        const datos = JSON.parse(localStorage.getItem("favoritos")) || [];
+        setLs(datos);
+        return datos;
+    }, []);
+        
+
+
+    return {
+        set,
+        get,
+        ls
     }
-
-  return {
-    set,
-    get,
-    ls
-  }
 }
 
-export default useLocalStorage
+export default useLocalStorage;
+
+
+
 
