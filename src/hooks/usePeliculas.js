@@ -11,10 +11,10 @@ export default function usePeliculas() {
     const [error, setError] = useState(null)
     const [peliculaDetalle, setPeliculaDetalle] = useState(null)
     
-     
+    const apiKey = import.meta.env.VITE_API_KEY;
+
     //funcion para obtener peliculas 
     async function obtenerPeliculas(tipo){
-      const apiKey = import.meta.env.VITE_API_KEY_PELICULAS;
       const url = `https://api.themoviedb.org/3/movie/${tipo}?api_key=${apiKey}&language=es-ES&page=${pagina}`;
       
       try {
@@ -43,6 +43,7 @@ export default function usePeliculas() {
     }  
     
     //detalle pelicula
+
     async function obtenerDetallePelicula(id){
       setLoading(true);
        try{
@@ -57,8 +58,7 @@ export default function usePeliculas() {
        setLoading(false);
       }
    }
-      
-  
+
 
     
     const data = {
@@ -69,6 +69,7 @@ export default function usePeliculas() {
       error,
       obtenerPeliculas,
       obtenerDetallePelicula,
+      peliculaDetalle,
       paginaAnterior,
       paginaSiguiente
     

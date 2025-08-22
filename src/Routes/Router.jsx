@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import Home from "../pages/Home"
 import UltimosLanzamientos from "../pages/UltimosLanzamientos"
 import Buscador from "../pages/Buscador"
+import DetallePelicula from "../pages/DetallePelicula";
 
 export default function Router() {
   return (
@@ -12,6 +13,7 @@ export default function Router() {
         <Route path="/UltimosLanzamientos" element={<UltimosLanzamientos />} />
         <Route path="/Populares" element={<MasPopulares />} />
         <Route path="/Buscar" element={<Buscador />} />
+        <Route path="/pelicula/:id" element={<DetallePelicula />} />
        </Route>
       </Route>
     </Routes>

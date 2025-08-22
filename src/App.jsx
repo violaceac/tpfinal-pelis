@@ -1,12 +1,13 @@
-
-import MasPopulares from "./pages/MasPopulares";
+import DetallePelicula from "./pages/DetallePelicula"
+// import MasPopulares from "./pages/MasPopulares";
 
 function App() {
  
   return (
     <>
       
-      <MasPopulares />
+      {/* <MasPopulares /> */}
+      <DetallePelicula />
       
     </>
   )
