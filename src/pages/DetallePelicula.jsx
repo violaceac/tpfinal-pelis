@@ -37,6 +37,14 @@ useEffect (()=>{
   }
 ,[id])
 
+useEffect(() => {
+  if (peliculaDetalle) {
+    console.log('Datos completos de la película:', peliculaDetalle);
+    console.log('Videos disponibles:', peliculaDetalle.videos);
+    console.log('Results de videos:', peliculaDetalle.videos?.results);
+  }
+}, [peliculaDetalle]);
+
 //si esta cargando , muestra cargando . 17/8
 if(loading) {
    return <div>Cargando...</div> 
@@ -48,15 +56,18 @@ if (error) {
 }
 
 // Si no se encontró la película después de la carga, muestra un mensaje. 17/8 // 
-//  if (!peliculaDetalle) {
-//   return <div>No se pudo encontrar la película.</div>;
-// }
+ if (!peliculaDetalle) {
+  return <div>No se pudo encontrar la película.</div>;
+}
 
 const trailer = peliculaDetalle.videos?.results?.find(
    (v) => v.type === "Trailer" && v.site === "YouTube"
   );
 
+
+
 const trailerUrl = trailer ? `https://www.youtube.com/watch?v=${trailer.key}` : null;
+console.log(trailerUrl);
 
 return (
    <div>
@@ -81,8 +92,7 @@ return (
     <MediaController style={{ width: "100%", aspectRatio: "16/9", marginTop: "20px" }}>
     <ReactPlayer
       slot="media"
-      url={trailerUrl}
-      playing
+      src={trailerUrl}
       controls={false}
       width="100%"
       height="100%"
