@@ -10,26 +10,25 @@ export default function usePeliculas() {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
     const [peliculaDetalle, setPeliculaDetalle] = useState(null)
-    
+
+    const apiKey = import.meta.env.VITE_API_KEY;
      
     //funcion para obtener peliculas 
     async function obtenerPeliculas(tipo){
-      const apiKey = import.meta.env.VITE_API_KEY_PELICULAS;
-      const url = `https://api.themoviedb.org/3/movie/${tipo}?api_key=${apiKey}&language=es-ES&page=${pagina}`;
       
+      const url = `https://api.themoviedb.org/3/movie/${tipo}?api_key=${apiKey}&language=es-ES&page=${pagina}`;
+      setLoading(true);
       try {
             const {data} = await axios.get(url)
             console.log (data)
             setPelis(data.results);
             setTotalPaginas(data.total_pages);
-            setLoading(true);
             setError(null);
           } catch (error) {
             setError("Error al obtener peliculas");
-            setLoading(false)
-          }
-
-      
+          } finally {
+       setLoading(false);
+      }
     }
     
     
@@ -44,7 +43,9 @@ export default function usePeliculas() {
     }  
     
     //detalle pelicula
+
     async function obtenerDetallePelicula(id){
+
       setLoading(true);
        try{
         const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=es-ES&append_to_response=videos`;
@@ -58,6 +59,7 @@ export default function usePeliculas() {
        setLoading(false);
       }
    }
+
       
   //buscador
   async function buscarPeliculas(busqueda) {
@@ -81,6 +83,7 @@ export default function usePeliculas() {
   }
 
 
+
     
     const data = {
       pelis,
@@ -90,10 +93,10 @@ export default function usePeliculas() {
       error,
       obtenerPeliculas,
       obtenerDetallePelicula,
-      buscarPeliculas,
+      peliculaDetalle,
       paginaAnterior,
       paginaSiguiente
-    
+      buscarPeliculas,
 
     }
   

@@ -1,8 +1,14 @@
 import { useEffect } from "react";
 import usePeliculas from "../hooks/usePeliculas";
+import { useNavigate, useParams } from 'react-router'
+
 
 
 export default function MasPopulares() {
+  
+  const navigate = useNavigate()
+  const { id } = useParams()
+
   const {
     obtenerPeliculas,
     pelis,
@@ -23,7 +29,9 @@ export default function MasPopulares() {
  }, [pagina]);*/}
 
  useEffect (()=> {
+
     obtenerPeliculas("popular");
+
   }
  ,[pagina]);
 
@@ -36,6 +44,7 @@ export default function MasPopulares() {
         <img
           src={`https://image.tmdb.org/t/p/w300${peli.poster_path}`}
           alt={peli.title}
+          onClick={() => {navigate(`/pelicula/${peli.id}`)}}
       
         />
         <h3>{peli.title}</h3>
