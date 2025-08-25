@@ -1,15 +1,18 @@
-import MasPopulares from "./pages/MasPopulares";
-// import UltimosLanzamientos from "./pages/UltimosLanzamientos";
+import Router from "./Routes/Router"
+
+import FavoriteContextProvider from "./context/FavoriteContext"
+
 
 function App() {
  
   return (
-    <>
-      
-        <MasPopulares />
-        {/* <UltimosLanzamientos /> */}
+
+  <>
+    <FavoriteContextProvider>
+      <Router />
+    </FavoriteContextProvider>
+
      
-      
     </>
   )
 }
