@@ -88,6 +88,7 @@ export default function usePeliculas() {
     const data = {
       pelis,
       pagina,
+      obtenerPeliculas,
       totalPaginas,
       loading,
       error,

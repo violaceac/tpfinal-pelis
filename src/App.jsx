@@ -6,10 +6,12 @@ import FavoriteContextProvider from "./context/FavoriteContext"
 function App() {
  
   return (
+
   <>
     <FavoriteContextProvider>
       <Router />
     </FavoriteContextProvider>
+
      
     </>
   )
