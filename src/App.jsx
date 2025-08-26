@@ -63,6 +63,7 @@ const theme = createTheme({
     },
   });
 
+
 function App() {
  
   return (
@@ -70,10 +71,14 @@ function App() {
   <>
    
     <FavoriteContextProvider>
+
+
+   
       <CssBaseline />
         <ThemeProvider theme={theme}>
           <Router />
-      </ThemeProvider>
+        </ThemeProvider>
+
     </FavoriteContextProvider>
 
      
