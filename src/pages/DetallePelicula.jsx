@@ -41,6 +41,7 @@ useEffect (()=>{
   }
 ,[id])
 
+
 useEffect(() => {
   if (peliculaDetalle) {
     console.log('Datos completos de la película:', peliculaDetalle);
@@ -48,6 +49,7 @@ useEffect(() => {
     console.log('Results de videos:', peliculaDetalle.videos?.results);
   }
 }, [peliculaDetalle]);
+
 
 //si esta cargando , muestra cargando . 17/8
 if(loading) {
@@ -93,13 +95,16 @@ if (error) {
 }
 
 // Si no se encontró la película después de la carga, muestra un mensaje. 17/8 // 
+
  if (!peliculaDetalle) {
    return <Typography>No se pudo encontrar la película.</Typography>;
 }
 
+
 const trailer = peliculaDetalle.videos?.results?.find(
    (v) => v.type === "Trailer" && v.site === "YouTube"
   );
+
 
 
 
@@ -286,25 +291,6 @@ return (
   );
 
 } 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
