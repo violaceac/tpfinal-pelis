@@ -33,9 +33,11 @@ export default function FavoriteContextProvider({ children }) {
     return exist;
   };
 
+
   const totalFavorites = () => {
     return allFavorites?.length;
   };
+
 
   const handleFavoriteClick = (peli) => {
     if (isFavorite(peli.id)) {
@@ -50,9 +52,12 @@ export default function FavoriteContextProvider({ children }) {
     allFavorites,
     totalFavorites,
     handleFavoriteClick
+
   };
 
   return (
     <FavoriteContext.Provider value={data}>{children}</FavoriteContext.Provider>
   );
+
 }
+

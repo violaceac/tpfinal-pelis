@@ -5,9 +5,11 @@ import UltimosLanzamientos from "../pages/UltimosLanzamientos"
 import MasPopulares from "../pages/MasPopulares"
 import PelisFavoritas from "../pages/PelisFavoritas"
 import Buscador from "../pages/Buscador"
+
 import Header from "../components/Header"
 import Footer from "../components/Footer"
-import DetallePelicula from "../components/DetallePelicula"
+import DetallePelicula from "../pages/DetallePelicula"
+
 
 function Router() {
     return(
@@ -27,3 +29,4 @@ function Router() {
 }
 
 export default Router
+

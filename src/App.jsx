@@ -70,10 +70,12 @@ function App() {
   <>
    
     <FavoriteContextProvider>
+
       <CssBaseline />
         <ThemeProvider theme={theme}>
           <Router />
-      </ThemeProvider>
+        </ThemeProvider>
+
     </FavoriteContextProvider>
 
      

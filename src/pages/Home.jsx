@@ -1,7 +1,6 @@
 import Slider from "../components/Slider"
 import ListaMasPopulares from "../components/ListaMasPopulares"
 import ListaMejorPuntadas from "../components/ListaMejorPuntadas"
-import Header from "../components/Header"
 
 import { Box } from "@mui/material"
 
@@ -36,3 +35,4 @@ function Home() {
 }
 
 export default Home
+
