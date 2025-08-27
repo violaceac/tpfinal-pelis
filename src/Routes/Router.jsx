@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router"
+import React from 'react'
 
 import Home from "../pages/Home"
 import UltimosLanzamientos from "../pages/UltimosLanzamientos"
@@ -26,7 +26,7 @@ function Router() {
         <Footer element={<Footer />} />
         </BrowserRouter>
     )
+
 }
 
-export default Router
 
