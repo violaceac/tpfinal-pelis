@@ -25,7 +25,7 @@ function ListaMasPopulares() {
 
    const { pelis, obtenerPeliculas } = usePeliculas();
    const navigate = useNavigate();
-     const { isFavorite, handleFavoriteClick } = useContext(FavoriteContext);
+   const { isFavorite, handleFavoriteClick } = useContext(FavoriteContext);
 
 useEffect(() => {
   
@@ -96,29 +96,28 @@ useEffect(() => {
 
                  {/* año y titulo */}
                  <Box>
-          {/* titulo */}
-          <Typography 
-            variant="h6" 
-            sx={{ 
-              fontSize: '1rem',
-              fontWeight: 'bold',
-              lineHeight: 1.2,
-              display: '-webkit-box',
-              WebkitLineClamp: 2,
-              WebkitBoxOrient: 'vertical',
-              overflow: 'hidden',
-              mb: 1
-            }}
-          >
-            {peli.title}
-          </Typography>
+                    {/* titulo */}
+                    <Typography 
+                      variant="h6" 
+                      sx={{ 
+                        fontSize: '1rem',
+                        fontWeight: 'bold',
+                        lineHeight: 1.2,
+                        display: '-webkit-box',
+                        WebkitLineClamp: 2,
+                        WebkitBoxOrient: 'vertical',
+                        overflow: 'hidden',
+                        mb: 1
+                    }}>
+                      {peli.title}
+                    </Typography>
           
-          {/* año */}
-          <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-            <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
-              {new Date(peli.release_date).getFullYear()}
-            </Typography>
-          </Box>
+                    {/* año */}
+                    <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+                    <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
+                      {new Date(peli.release_date).getFullYear()}
+                    </Typography>
+                    </Box>
                  </Box>
         
                 {/* boton ver pelicula */}

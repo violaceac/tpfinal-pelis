@@ -18,6 +18,7 @@ function Router() {
             <Route path="/populares" element={<MasPopulares />} />
             <Route path="/favoritos" element={<PelisFavoritas />} />
             <Route path="/buscar" element={<Buscador />} />
+            <Route path="/pelicula/:id" element={<DetallePelicula />} />
         </Routes>
         <Footer element={<Footer />} />
         </BrowserRouter>

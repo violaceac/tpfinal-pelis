@@ -1,4 +1,4 @@
-import Router from "./router/Router"
+import Router from "./Routes/Router"
 import FavoriteContextProvider from "./context/FavoriteContext"
 
 import { createTheme, ThemeProvider, CssBaseline } from "@mui/material";

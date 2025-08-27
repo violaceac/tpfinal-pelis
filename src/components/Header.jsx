@@ -19,9 +19,7 @@ import { MenuItem } from '@mui/material';
 
 function Header() {
 
-  const navigate = useNavigate()
-
-  const { totalFavorites } = useContext(FavoriteContext)
+  const navigate = useNavigate();
 
   const [anchorElNav, setAnchorElNav] = useState(null);
 
