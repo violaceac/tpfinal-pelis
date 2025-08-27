@@ -14,6 +14,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { FavoriteContext } from '../context/FavoriteContext';
+import { MenuItem } from '@mui/material';
 
 
 function Header() {
@@ -93,13 +94,14 @@ function Header() {
               
               sx={{ 
                 display: { xs: 'block', md: 'none' },
-                borderRadius: 0,
+                borderRadius: '0 !important',
             }}
             >
-                <Typography onClick={() => navigate("/")} > Home </Typography>
-                <Typography onClick={() => navigate("/lanzamientos")} > Ultimos Lanzamientos </Typography>
-                <Typography onClick={() => navigate("/populares")} > Populares </Typography>
-                <Typography onClick={() => navigate("/buscar")} > Buscar </Typography>
+              <MenuItem onClick={() => navigate("/")} > Home </MenuItem>
+              <MenuItem onClick={() => navigate("/lanzamientos")} >Ultimos Lanzamientos</MenuItem>
+              <MenuItem onClick={() => navigate("/populares")} >Populares</MenuItem>
+              <MenuItem onClick={() => navigate("/buscar")} > Buscar </MenuItem>
+      
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -125,12 +127,12 @@ function Header() {
 
 
           {/* ESTO SERIA EN ESCRITORIO */}
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                <Typography onClick={() => navigate("/")} > Home </Typography>
-                <Typography onClick={() => navigate("/lanzamientos")} > Ultimos Lanzamientos </Typography>
-                <Typography onClick={() => navigate("/populares")} > Populares </Typography>
-                <Typography onClick={() => navigate("/buscar")} > Buscar </Typography>
-          </Box>
+          <Menu sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+            <MenuItem onClick={() => navigate("/")} > Home </MenuItem>
+              <MenuItem onClick={() => navigate("/lanzamientos")} >Ultimos Lanzamientos</MenuItem>
+              <MenuItem onClick={() => navigate("/populares")} >Populares</MenuItem>
+              <MenuItem onClick={() => navigate("/buscar")} > Buscar </MenuItem>
+          </Menu>
           <Box sx={{ flexGrow: 0 }}>
               <FavoriteIcon color="white" fontSize='medium' onClick={() => navigate("/favoritos")} />
           </Box>

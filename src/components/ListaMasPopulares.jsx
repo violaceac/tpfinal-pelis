@@ -1,6 +1,10 @@
 import { useEffect } from 'react'
 import usePeliculas from "../hooks/usePeliculas"
 
+import { useNavigate } from 'react-router';
+import { useContext } from 'react';
+import { FavoriteContext } from '../context/FavoriteContext';
+
 
 import {
   Box,
@@ -9,14 +13,19 @@ import {
   Card,
   CardMedia,
   CardContent,
+  CardActions,
   List,
   ListItem
 } from '@mui/material';
 import { PlayArrow } from '@mui/icons-material';
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 function ListaMasPopulares() {
 
    const { pelis, obtenerPeliculas } = usePeliculas();
+   const navigate = useNavigate();
+     const { isFavorite, handleFavoriteClick } = useContext(FavoriteContext);
 
 useEffect(() => {
   
@@ -127,6 +136,14 @@ useEffect(() => {
                   Ver Película
                 </Button>
               </CardContent>
+
+              <CardActions>
+            {/* <Button size="medium" onClick={() => navigate(`/detail/${id}`)}>Ver Detalle</Button> */}
+            
+            <Button onClick={() => handleFavoriteClick(peli)} color={isFavorite(peli.id) ? "error" : "default"}>
+              {isFavorite(peli.id) ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+            </Button>
+        </CardActions>
             </Card>
           </ListItem>
         ))}

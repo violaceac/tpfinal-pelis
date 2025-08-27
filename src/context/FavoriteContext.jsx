@@ -33,18 +33,23 @@ export default function FavoriteContextProvider({ children }) {
     return exist;
   };
 
-
-
   const totalFavorites = () => {
     return allFavorites?.length;
   };
 
+  const handleFavoriteClick = (peli) => {
+    if (isFavorite(peli.id)) {
+      removeFavorite(peli.id);
+    } else{
+      addFavorite(peli);
+    }
+  }
+
   const data = {
-    removeFavorite,
-    addFavorite,
     isFavorite,
     allFavorites,
     totalFavorites,
+    handleFavoriteClick
   };
 
   return (
