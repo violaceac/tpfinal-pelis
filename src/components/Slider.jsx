@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
-import usePelis from "../hooks/usePelis";
+import usePeliculas from "../hooks/usePeliculas";
+
+import { Card, CardMedia, Typography, Box } from '@mui/material';
 
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -9,11 +11,11 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 function Slider() {
 
-  const { pelis, obtenerPelis } = usePelis();
+  const { pelis, obtenerPeliculas } = usePeliculas();
 
 useEffect(() => {
   
-  obtenerPelis("now_playing")
+  obtenerPeliculas("now_playing")
 }, []);
 
   return (
@@ -29,22 +31,51 @@ useEffect(() => {
       emulateTouch={true} 
     >
       {pelis.map((peli) => (
-        <div key={peli.id}>
-          <img
-            src={`https://image.tmdb.org/t/p/w1280${peli.backdrop_path}`}
-            alt={peli.title}
-          />
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-white">
-              <h3 className="text-2xl font-bold mb-2">{peli.title}</h3>
-            </div>
-        </div>
+    <Card key={peli.id} sx={{ 
+      position: 'relative', 
+      maxWidth: 300, 
+      height: 200,
+      margin: '0 auto',
+      paddingTop: 1,
+      borderRadius: 0,
+      boxShadow: 3
+    }}>
+
+      <CardMedia
+        component="img"
+        height="200"
+        image={`https://image.tmdb.org/t/p/w1280${peli.backdrop_path}`}
+        alt={peli.title}
+        sx={{ objectFit: 'cover' }}
+      />
+      
+      <Box sx={{
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        right: 0,
+        background: 'linear-gradient(transparent, rgba(0,0,0,0.7))',
+        padding: 1,
+        color: 'white'
+      }}>
+        <Typography 
+          variant="h6" 
+          sx={{ 
+            textAlign: 'center',
+            fontWeight: 'bold',
+            
+          }}
+        >
+          {peli.title}
+        </Typography>
+      </Box>
+    </Card>
       ))}
     </Carousel>
 
 
   );
-  
-  
+
 }
 
 export default Slider

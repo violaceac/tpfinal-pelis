@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 
-export default function usePelis() {
+export default function usePeliculas() {
 
   const [pelis, setPelis] = useState([]);
   const [pagina, setPagina] = useState([1])
@@ -12,7 +12,7 @@ export default function usePelis() {
   
   const apiKey = import.meta.env.VITE_API_KEY;
   //tengo que pasar el tipo en la funcion de obtener las peliculas
-  async function obtenerPelis(type) {
+  async function obtenerPeliculas(type) {
  
     
 
@@ -71,7 +71,7 @@ export default function usePelis() {
     obtenerDetallePelicula,
     paginaAnterior,
     paginaSiguiente,
-    obtenerPelis,
+    obtenerPeliculas,
   }
   return data
 }

@@ -1,21 +1,137 @@
 import { useEffect } from 'react';
-import usePelis from "../hooks/usePelis";
+import usePeliculas from "../hooks/usePeliculas";
+
+import {
+  Box,
+  Typography,
+  Button,
+  Card,
+  CardMedia,
+  CardContent,
+  List,
+  ListItem
+} from '@mui/material';
+import { PlayArrow, Star } from '@mui/icons-material';
+
 
 function ListaMejorPuntadas() {
 
-   const { pelis, obtenerPelis } = usePelis();
+   const { pelis, obtenerPeliculas } = usePeliculas();
 
 useEffect(() => {
   
-  obtenerPelis("top_rated")
+  obtenerPeliculas("top_rated")
 }, []);
 
   return (
-    <div>
-      {pelis.map((peli)=> (
-        <h1 key={peli.id}>{peli.title}</h1>
-      ))}
-    </div>
+       <Box sx={{
+      width:'280px',
+      height: '400px',
+      overflow: 'auto',
+    }}>
+
+      {/* titulo del contenedor */}
+      <Typography 
+            sx={{
+          position: 'sticky',
+          top: 0,               
+          zIndex: 10,        
+          backgroundColor: 'background.paper', 
+          paddingY: 1,              
+          borderBottom: '1px solid',
+          borderColor: 'divider'
+        }}
+        variant="h5" 
+        fontWeight="bold" 
+        color="primary" 
+        gutterBottom>
+          Mejor Puntadas 
+      </Typography>
+
+      {/* lista de pelis map y card para cada peli */}
+      <List sx={{ padding: 0 }}>
+        {pelis.map((peli) => (
+          <ListItem key={peli.id} sx={{ padding: '8px 0' }}>
+
+            {/* card peli imagen + data */}
+            <Card sx={{ 
+              display: 'flex', 
+              width: '100%', 
+              minHeight: 120, 
+              borderRadius: 1,
+              boxShadow: 2,
+              }}>
+
+              {/* imagen */}
+              <CardMedia
+                component="img"
+                sx={{ 
+                  width: 80, 
+                  height: 120, 
+                  objectFit: 'cover',
+                  flexShrink: 0 
+                }}
+                image={`https://image.tmdb.org/t/p/w1280${peli.poster_path}`}
+                alt={peli.title}
+              />
+      
+              {/* boton ver pelicula + año y titulo */}
+              <CardContent sx={{ 
+                display: 'flex', 
+                flexDirection: 'column', 
+                justifyContent: 'space-between',
+                padding: '12px !important',
+                flexGrow: 1, 
+                minWidth: 0 
+              }}>
+
+                 {/* año y titulo */}
+                 <Box>
+          {/* titulo */}
+          <Typography 
+            variant="h6" 
+            sx={{ 
+              fontSize: '1rem',
+              fontWeight: 'bold',
+              lineHeight: 1.2,
+              display: '-webkit-box',
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: 'vertical',
+              overflow: 'hidden',
+              mb: 1
+            }}
+          >
+            {peli.title}
+          </Typography>
+          
+          {/* año */}
+          <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+            <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
+              {new Date(peli.release_date).getFullYear()}
+            </Typography>
+          </Box>
+                 </Box>
+        
+                {/* boton ver pelicula */}
+                <Button
+                  variant="contained"
+                  size="small"
+                  startIcon={<PlayArrow />}
+                 sx={{
+                   alignSelf: 'flex-start',
+                   fontSize: '0.75rem',
+                   padding: '4px 12px',
+                  borderRadius: 1
+                  }}
+                >
+                  Ver Película
+                </Button>
+              </CardContent>
+            </Card>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
   )
 }
 

@@ -5,11 +5,13 @@ import UltimosLanzamientos from "../pages/UltimosLanzamientos"
 import MasPopulares from "../pages/MasPopulares"
 import PelisFavoritas from "../pages/PelisFavoritas"
 import Buscador from "../pages/Buscador"
+import Header from "../components/Header"
+import Footer from "../components/Footer"
 
 function Router() {
     return(
         <BrowserRouter>
-        {/* <Header /> */}
+        <Header element={<Header />} />
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/lanzamientos" element={<UltimosLanzamientos />} />
@@ -17,6 +19,7 @@ function Router() {
             <Route path="/favoritos" element={<PelisFavoritas />} />
             <Route path="/buscar" element={<Buscador />} />
         </Routes>
+        <Footer element={<Footer />} />
         </BrowserRouter>
     )
 }
