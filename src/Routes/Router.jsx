@@ -7,6 +7,7 @@ import PelisFavoritas from "../pages/PelisFavoritas"
 import Buscador from "../pages/Buscador"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
+import DetallePelicula from "../components/DetallePelicula"
 
 function Router() {
     return(
