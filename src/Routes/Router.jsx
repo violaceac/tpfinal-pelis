@@ -1,9 +1,32 @@
 import React from 'react'
 
-export default function Router() {
-  return (
-    <div>Router</div>
-  )
+import Home from "../pages/Home"
+import UltimosLanzamientos from "../pages/UltimosLanzamientos"
+import MasPopulares from "../pages/MasPopulares"
+import PelisFavoritas from "../pages/PelisFavoritas"
+import Buscador from "../pages/Buscador"
+
+import Header from "../components/Header"
+import Footer from "../components/Footer"
+import DetallePelicula from "../pages/DetallePelicula"
+
+
+function Router() {
+    return(
+        <BrowserRouter>
+        <Header element={<Header />} />
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/lanzamientos" element={<UltimosLanzamientos />} />
+            <Route path="/populares" element={<MasPopulares />} />
+            <Route path="/favoritos" element={<PelisFavoritas />} />
+            <Route path="/buscar" element={<Buscador />} />
+            <Route path="/pelicula/:id" element={<DetallePelicula />} />
+        </Routes>
+        <Footer element={<Footer />} />
+        </BrowserRouter>
+    )
+
 }
 
 

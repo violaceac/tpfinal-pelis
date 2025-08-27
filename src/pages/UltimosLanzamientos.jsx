@@ -1,3 +1,14 @@
+<<<<<<< HEAD
+import React from 'react'
+
+function UltimosLanzamientos() {
+  return (
+    <div>UltimosLanzamientos</div>
+  )
+}
+
+export default UltimosLanzamientos
+=======
 import { useEffect } from "react";
 import usePeliculas from "../hooks/usePeliculas";
 
@@ -59,3 +70,4 @@ export default function ultimosLanzamientos() {
 
 
 
+>>>>>>> develop

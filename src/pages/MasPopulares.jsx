@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+
 import usePeliculas from "../hooks/usePeliculas";
 import { useNavigate } from "react-router";
 
@@ -150,7 +151,6 @@ export default function MasPopulares() {
     </>
   );
 }
-
 
 
 

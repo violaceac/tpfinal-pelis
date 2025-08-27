@@ -71,4 +71,3 @@ function mostrarBusqueda() {
 
 export default mostrarBusqueda;
 
-
