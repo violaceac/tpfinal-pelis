@@ -16,7 +16,9 @@ import { useNavigate } from 'react-router';
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
+
 function PelisFavoritas() {
+
   const { allFavorites, handleFavoriteClick, isFavorite } = useContext(FavoriteContext);
   const navigate = useNavigate();
 
@@ -131,3 +133,4 @@ function PelisFavoritas() {
 }
 
 export default PelisFavoritas;
+
