@@ -87,7 +87,8 @@ export default function MasPopulares() {
                     objectFit: "cover",
                     cursor: "pointer",
                   }}
-                  onClick={() => navigate(`/pelicula/${peli.id}`)}
+                  onClick={() => navigate(`/pelicula/:${peli.id}`)}
+                 
                 />
 
                 {/* Título + corazón */}
@@ -151,12 +152,3 @@ export default function MasPopulares() {
     </>
   );
 }
-
-
-
-
-
-
-
-
-
