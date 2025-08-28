@@ -1,21 +1,31 @@
-import { BrowserRouter, Route, Routes } from "react-router";
+import { BrowserRouter, Routes, Route } from "react-router"
+
 import Home from "../pages/Home"
 import UltimosLanzamientos from "../pages/UltimosLanzamientos"
+import MasPopulares from "../pages/MasPopulares"
+import PelisFavoritas from "../pages/PelisFavoritas"
 import Buscador from "../pages/Buscador"
 
-export default function Router() {
-  return (
-  <BrowserRouter>
-    <Routes>
-      <Route path="/">
-       <Route index element={<Home />}>
-        <Route path="/UltimosLanzamientos" element={<UltimosLanzamientos />} />
-        <Route path="/Populares" element={<MasPopulares />} />
-        <Route path="/Buscar" element={<Buscador />} />
-       </Route>
-      </Route>
-    </Routes>
-  </BrowserRouter>
-  )
+import Header from "../components/Header"
+import Footer from "../components/Footer"
+import DetallePelicula from "../pages/DetallePelicula"
+
+
+function Router() {
+    return(
+        <BrowserRouter>
+        <Header element={<Header />} />
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/lanzamientos" element={<UltimosLanzamientos />} />
+            <Route path="/populares" element={<MasPopulares />} />
+            <Route path="/favoritos" element={<PelisFavoritas />} />
+            <Route path="/buscar" element={<Buscador />} />
+            <Route path="/pelicula/:id" element={<DetallePelicula />} />
+        </Routes>
+        <Footer element={<Footer />} />
+        </BrowserRouter>
+    )
 }
 
+export default Router

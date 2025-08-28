@@ -1,5 +1,7 @@
-import { useEffect, useState} from "react";
+import { useEffect, useState } from "react";
+
 import usePeliculas from "../hooks/usePeliculas";
+import { useNavigate } from "react-router";
 
 import {
   Grid,
@@ -13,13 +15,14 @@ import {
 } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
-export default function ultimosLanzamientos() {
+export default function UltimosLanzamientos() {
+  const navigate = useNavigate();
+
   const {
     obtenerPeliculas,
     pelis,
     pagina,
-    paginaAnterior,
-    paginaSiguiente,
+    irAPagina,
     totalPaginas,
   } = usePeliculas();
 
@@ -31,10 +34,9 @@ export default function ultimosLanzamientos() {
     );
   }
 
-  useEffect (()=>{
-    obtenerPeliculas("now_playing")
-  },[pagina]);
-
+  useEffect(() => {
+    obtenerPeliculas("now_playing");
+  }, [pagina]);
 
   return (
     <>
@@ -64,11 +66,7 @@ export default function ultimosLanzamientos() {
 
           return (
             <Grid
-              item
-              xs={6}  // 2 cards por fila en mobile
-              sm={4}  // 3 cards en tablet
-              md={3}  // 4 cards en desktop
-              lg={2}  // 6 cards en desktop grande
+              size={{xs:6, sm:4, md:3, lg:2}}
               key={peli.id}
             >
               <Card
@@ -134,15 +132,20 @@ export default function ultimosLanzamientos() {
       >
 
         <Pagination
-          count={totalPaginas}
-          page={pagina}
-          onChange={(e, value) => {
-            if (value > pagina) paginaSiguiente();
-            else paginaAnterior();
-          }}
+            count={totalPaginas}
+            page={pagina}
+            onChange={(e, value) => {
+            irAPagina(value); 
+            }}
+
           color="primary"
           size="medium"
           sx={{ mt: 1 }}
+
+           boundaryCount={1} 
+           siblingCount={1}   
+           showFirstButton     
+           showLastButton      
         />
       </Box>
     </>
