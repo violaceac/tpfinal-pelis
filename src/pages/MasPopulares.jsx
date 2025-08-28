@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import usePeliculas from "../hooks/usePeliculas";
 import { useNavigate } from "react-router";
@@ -22,8 +22,7 @@ export default function MasPopulares() {
     obtenerPeliculas,
     pelis,
     pagina,
-    paginaAnterior,
-    paginaSiguiente,
+    irAPagina,
     totalPaginas,
   } = usePeliculas();
 
@@ -67,11 +66,7 @@ export default function MasPopulares() {
 
           return (
             <Grid
-              item
-              xs={6}  // 2 cards por fila en mobile
-              sm={4}  // 3 cards en tablet
-              md={3}  // 4 cards en desktop
-              lg={2}  // 6 cards en desktop grande
+              size={{xs:6, sm:4, md:3, lg:2}}
               key={peli.id}
             >
               <Card
@@ -137,15 +132,20 @@ export default function MasPopulares() {
       >
 
         <Pagination
-          count={totalPaginas}
-          page={pagina}
-          onChange={(e, value) => {
-            if (value > pagina) paginaSiguiente();
-            else paginaAnterior();
-          }}
+            count={totalPaginas}
+            page={pagina}
+            onChange={(e, value) => {
+            irAPagina(value); 
+            }}
+
           color="primary"
           size="medium"
           sx={{ mt: 1 }}
+
+           boundaryCount={1} 
+           siblingCount={1}   
+           showFirstButton     
+           showLastButton      
         />
       </Box>
     </>

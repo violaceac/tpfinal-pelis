@@ -53,13 +53,19 @@ export default function usePeliculas() {
     }
   }
 
-  function paginaAnterior() {
-    if (pagina > 1) setPagina(pagina-1);
-  }
 
-  function paginaSiguiente() {
-    if (pagina < totalPaginas) setPagina(pagina + 1);
-  }
+  
+  const irAPagina = (nuevaPagina) => {
+    setPagina(nuevaPagina);
+  };
+
+  // function paginaAnterior() {
+  //   if (pagina > 1) setPagina(pagina-1);
+  // }
+
+  // function paginaSiguiente() {
+  //   if (pagina < totalPaginas) setPagina(pagina + 1);
+  // }
 
     
     //detalle pelicula
@@ -115,8 +121,9 @@ export default function usePeliculas() {
       obtenerPeliculas,
       obtenerDetallePelicula,
       peliculaDetalle,
-      paginaAnterior,
-      paginaSiguiente,
+      // paginaAnterior,
+      // paginaSiguiente,
+      irAPagina,
       buscarPeliculas,
 
     }
