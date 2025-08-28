@@ -93,7 +93,7 @@ export default function usePeliculas() {
       setPelis([]);
       return;
     }
-    const apiKey = import.meta.env.VITE_API_KEY_PELICULAS;
+
     const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=es-ES&query=${busqueda}&page=1`;
     setLoading(true);
     try {
