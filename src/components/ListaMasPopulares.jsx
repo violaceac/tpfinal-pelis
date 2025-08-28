@@ -153,5 +153,3 @@ useEffect(() => {
 
 export default ListaMasPopulares
 
-
-

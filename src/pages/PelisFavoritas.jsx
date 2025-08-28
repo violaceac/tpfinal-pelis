@@ -10,13 +10,15 @@ import {
   Button,
   IconButton
 } from '@mui/material';
-import { PlayArrow, Delete } from '@mui/icons-material';
+
 import { useNavigate } from 'react-router';
 
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
-function Favoritos() {
+
+function PelisFavoritas() {
+
   const { allFavorites, handleFavoriteClick, isFavorite } = useContext(FavoriteContext);
   const navigate = useNavigate();
 
@@ -130,5 +132,5 @@ function Favoritos() {
   );
 }
 
-export default Favoritos;
+export default PelisFavoritas;
 
