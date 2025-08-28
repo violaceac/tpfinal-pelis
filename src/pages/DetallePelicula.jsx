@@ -150,7 +150,7 @@ return (
         }}
       >
         {/* Póster de la película. Ocupa 12 columnas en móviles y 4 en tablets y desktops. */}
-        <Grid item xs={12} sm={4}>
+        <Grid size={{ xs: 12, sm: 4 }}>
           <Box
             sx={{
               display: "flex",
@@ -171,7 +171,7 @@ return (
         </Grid>
 
         {/* Contenido de la película */}
-        <Grid item xs={12} sm={8}>
+        <Grid size={{ xs: 12, sm: 8 }}>
           <Stack
             spacing={2}
             sx={{

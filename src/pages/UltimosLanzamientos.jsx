@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react'
+import usePeliculas from "../hooks/usePeliculas"
 
-import usePeliculas from "../hooks/usePeliculas";
-import { useNavigate } from "react-router";
+import { useNavigate } from 'react-router';
+import { useContext } from 'react';
+import { FavoriteContext } from '../context/FavoriteContext';
 
 import {
   Grid,
@@ -9,14 +11,17 @@ import {
   CardMedia,
   CardContent,
   Typography,
-  IconButton,
+  Button,
   Box,
   Pagination,
 } from "@mui/material";
+
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 export default function UltimosLanzamientos() {
   const navigate = useNavigate();
+  const { isFavorite, handleFavoriteClick } = useContext(FavoriteContext)
 
   const {
     obtenerPeliculas,
@@ -28,11 +33,11 @@ export default function UltimosLanzamientos() {
 
   const [favoritos, setFavoritos] = useState([]);
 
-  function toggleFavorito(id) {
-    setFavoritos((prev) =>
-      prev.includes(id) ? prev.filter((fid) => fid !== id) : [...prev, id]
-    );
-  }
+  // function toggleFavorito(id) {
+  //   setFavoritos((prev) =>
+  //     prev.includes(id) ? prev.filter((fid) => fid !== id) : [...prev, id]
+  //   );
+  // }
 
   useEffect(() => {
     obtenerPeliculas("now_playing");
@@ -105,14 +110,9 @@ export default function UltimosLanzamientos() {
                     {peli.title}
                   </Typography>
 
-                  <IconButton onClick={() => toggleFavorito(peli.id)} size="small">
-                    <FavoriteIcon
-                      sx={{
-                        fontSize: { xs: "1.2rem", md: "1.5rem" },
-                        color: esFavorito ? "secondary.main" : "text.secondary",
-                      }}
-                    />
-                  </IconButton>
+                 <Button onClick={() => handleFavoriteClick(peli)} color={isFavorite(peli.id) ? "error" : "default"}>
+                  {isFavorite(peli.id) ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+                </Button>
                 </CardContent>
               </Card>
             </Grid>

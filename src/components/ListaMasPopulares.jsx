@@ -131,18 +131,17 @@ useEffect(() => {
                    padding: '4px 12px',
                   borderRadius: 1
                   }}
+                  onClick={() => navigate(`/pelicula/${peli.id}`)}
                 >
-                  Ver Película
+                   Ver 
                 </Button>
               </CardContent>
 
               <CardActions>
-            {/* <Button size="medium" onClick={() => navigate(`/detail/${id}`)}>Ver Detalle</Button> */}
-            
-            <Button onClick={() => handleFavoriteClick(peli)} color={isFavorite(peli.id) ? "error" : "default"}>
-              {isFavorite(peli.id) ? <FavoriteIcon /> : <FavoriteBorderIcon />}
-            </Button>
-        </CardActions>
+                <Button onClick={() => handleFavoriteClick(peli)} color={isFavorite(peli.id) ? "error" : "default"}>
+                  {isFavorite(peli.id) ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+                </Button>
+              </CardActions>
             </Card>
           </ListItem>
         ))}
