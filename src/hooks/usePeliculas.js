@@ -14,7 +14,7 @@ export default function usePeliculas() {
      
     //funcion para obtener peliculas 
     async function obtenerPeliculas(tipo){
-      const apiKey = import.meta.env.VITE_API_KEY_PELICULAS;
+      const apiKey = import.meta.env.VITE_API_KEY;
       const url = `https://api.themoviedb.org/3/movie/${tipo}?api_key=${apiKey}&language=es-ES&page=${pagina}`;
       
       try {

@@ -1,13 +1,13 @@
-import MasPopulares from "./pages/MasPopulares";
-import UltimosLanzamientos from "./pages/UltimosLanzamientos";
+import MasPopulares from "./pages/MasPopulares"; 
+import UltimosLanzamientos from "./pages/UltimosLanzamientos"; 
 
 
-function App() {
+function App() { //esto ya estaba
  
   return (
     <>
       
-      <MasPopulares />
+      <MasPopulares />     
       <UltimosLanzamientos />
     </>
   )
