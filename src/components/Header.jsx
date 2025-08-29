@@ -10,11 +10,11 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 
-import AdbIcon from '@mui/icons-material/Adb';
+
 
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
-import { MenuItem } from '@mui/material';
+import { Button, MenuItem } from '@mui/material';
 
 
 function Header() {
@@ -45,8 +45,10 @@ function Header() {
         <Toolbar disableGutters>
 
           {/* LOGO Y TITULO DEL HEADER/PAGINA */}
-          <Box onClick={() => navigate("/")}>
-            <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <Box onClick={() => navigate("/")}
+            sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}
+          >
+
             <Typography
               variant="h6"
               noWrap
@@ -82,11 +84,11 @@ function Header() {
                 vertical: 'bottom',
                 horizontal: 'left',
               }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
+              // keepMounted
+              // transformOrigin={{
+              //   vertical: 'top',
+              //   horizontal: 'left',
+              // }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               
@@ -102,7 +104,7 @@ function Header() {
       
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+
 
           {/* TITULO DE LA PAGINA */}
           <Typography
@@ -125,12 +127,55 @@ function Header() {
 
 
           {/* ESTO SERIA EN ESCRITORIO */}
-          <Menu sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            <MenuItem onClick={() => navigate("/")} > Home </MenuItem>
-              <MenuItem onClick={() => navigate("/lanzamientos")} >Ultimos Lanzamientos</MenuItem>
-              <MenuItem onClick={() => navigate("/populares")} >Populares</MenuItem>
-              <MenuItem onClick={() => navigate("/buscar")} > Buscar </MenuItem>
-          </Menu>
+          <Box sx={{ 
+            flexGrow: 1, 
+            display: { xs: 'none', md: 'flex' },
+            gap: 2, // Espacio entre botones
+            ml: 3   // Margen izquierdo
+          }}>
+            <Button 
+              color="inherit" 
+              onClick={() => navigate("/")}
+              sx={{ 
+                fontWeight: 'bold',
+                '&:hover': { backgroundColor: 'rgba(255,255,255,0.1)' }
+              }}
+            >
+              Home
+            </Button>
+            <Button 
+              color="inherit" 
+              onClick={() => navigate("/lanzamientos")}
+              sx={{ 
+                fontWeight: 'bold',
+                '&:hover': { backgroundColor: 'rgba(255,255,255,0.1)' }
+              }}
+            >
+              Últimos Lanzamientos
+            </Button>
+            <Button 
+              color="inherit" 
+              onClick={() => navigate("/populares")}
+              sx={{ 
+                fontWeight: 'bold',
+                '&:hover': { backgroundColor: 'rgba(255,255,255,0.1)' }
+              }}
+            >
+              Populares
+            </Button>
+            <Button 
+              color="inherit" 
+              onClick={() => navigate("/buscar")}
+              sx={{ 
+                fontWeight: 'bold',
+                '&:hover': { backgroundColor: 'rgba(255,255,255,0.1)' }
+              }}
+            >
+              Buscar
+            </Button>
+          </Box>
+
+          {/* icono favoritos */}
           <Box sx={{ flexGrow: 0 }}>
               <FavoriteIcon color="white" fontSize='medium' onClick={() => navigate("/favoritos")} />
           </Box>

@@ -35,22 +35,35 @@ useEffect(() => {
       {pelis.map((peli) => (
     <Card key={peli.id} sx={{ 
       position: 'relative', 
-      maxWidth: 300, 
-      height: 200,
+      maxWidth: '100%', 
+      height: {
+        xs: 200,  
+        sm: 300,    
+        md: 400,  
+        lg: 500   
+      },
       margin: '0 auto',
       paddingTop: 1,
       borderRadius: 0,
-      boxShadow: 3
+      boxShadow: 3,
+      overflow: 'hidden'
     }}
     onClick={() => navigate(`/pelicula/${peli.id}`)}
     >
+{/* 
+            sx={{ 
+                display: { xs: 'block', md: 'none' },
+                borderRadius: '0 !important',
+            }} */}
 
       <CardMedia
         component="img"
-        height="200"
+        
         image={`https://image.tmdb.org/t/p/w1280${peli.backdrop_path}`}
         alt={peli.title}
-        sx={{ objectFit: 'cover' }}
+        sx={{ objectFit: 'cover',
+          height: '100%',
+         }}
       />
       
       <Box sx={{
@@ -59,7 +72,10 @@ useEffect(() => {
         left: 0,
         right: 0,
         background: 'linear-gradient(transparent, rgba(0,0,0,0.7))',
-        padding: 1,
+        padding: {
+          xs: 1,  
+          md: 2     
+        },
         color: 'white'
       }}>
         <Typography 
@@ -67,7 +83,12 @@ useEffect(() => {
           sx={{ 
             textAlign: 'center',
             fontWeight: 'bold',
-            
+            fontSize: {
+              xs: '0.9rem',  
+              sm: '1.5rem',  
+              md: '2.5rem', 
+              lg: '3rem'   
+            }
           }}
         >
           {peli.title}

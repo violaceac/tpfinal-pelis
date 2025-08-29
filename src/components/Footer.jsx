@@ -5,13 +5,17 @@ function Footer() {
   return (
     <Box 
       sx={{
-      bgcolor: '#1a237e'
+      bgcolor: '#1a237e',
+      height:'50px',
+      display:'flex',
+      alignItems:'center',
+      justifyContent:'center'
     }}
     >
         <Typography
             sx={{
                 mr: 2,
-                fontFamily: 'monospace',
+                fontFamily: 'roboto',
                 fontWeight: 700,
                 color: 'white',
                 textDecoration: 'none',

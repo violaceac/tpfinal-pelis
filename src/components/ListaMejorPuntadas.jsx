@@ -34,7 +34,7 @@ useEffect(() => {
 
   return (
     <Box sx={{
-      width:'280px',
+      width:'90%',
       height: '400px',
       overflow: 'auto',
     }}>
@@ -54,7 +54,7 @@ useEffect(() => {
         fontWeight="bold" 
         color="primary" 
         gutterBottom>
-          Mas Populares 
+          Mejor Puntadas
       </Typography>
 
       {/* lista de pelis map y card para cada peli */}

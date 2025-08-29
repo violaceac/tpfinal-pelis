@@ -34,7 +34,7 @@ useEffect(() => {
 
   return (
     <Box sx={{
-      width:'280px',
+      width:'90%',
       height: '400px',
       overflow: 'auto',
     }}>
