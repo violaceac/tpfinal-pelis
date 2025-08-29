@@ -5,7 +5,7 @@ function Footer() {
   return (
     <Box 
       sx={{
-      bgcolor: '#1a237e',
+      bgcolor: '#0f0f1b',
       height:'50px',
       display:'flex',
       alignItems:'center',

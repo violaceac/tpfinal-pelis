@@ -48,7 +48,8 @@ useEffect(() => {
           backgroundColor: 'background.paper', 
           paddingY: 1,              
           borderBottom: '1px solid',
-          borderColor: 'divider'
+          borderColor: 'divider',
+          color: '#2d2d4d'
         }}
         variant="h5" 
         fontWeight="bold" 
@@ -129,7 +130,8 @@ useEffect(() => {
                    alignSelf: 'flex-start',
                    fontSize: '0.75rem',
                    padding: '4px 12px',
-                  borderRadius: 1
+                   borderRadius: 1,
+                   backgroundColor: '#2d2d4d',
                   }}
                   onClick={() => navigate(`/pelicula/${peli.id}`)}
                 >

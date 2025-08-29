@@ -31,45 +31,45 @@ function Home() {
         sx={{
           display: 'flex',
           flexDirection: { 
-            xs: 'column',  // Mobile: vertical
-            sm: 'row',  // Tablet: vertical  
-            md: 'row'      // Desktop: horizontal
+            xs: 'column',  
+            sm: 'row',   
+            md: 'row'      
           },
           gap: { 
             xs: 3,
-            sm: 4,         // Mobile: 24px entre componentes
-            md: 4          // Desktop: 32px entre componentes
+            sm: 4,       
+            md: 4         
           },
-          alignItems: 'stretch' // ← Que ambos tengan la misma altura
+          alignItems: 'stretch' 
         }}
       >
-        {/* PRIMER COMPONENTE - 50% ancho en desktop */}
+        {/* componente mas populares */}
         <Box sx={{ 
           flex: { 
-            xs: 'none',    // Mobile: ancho completo
+            xs: 'none',
             sm: 1,
-            md: 1          // Desktop: ocupa 1 parte del espacio
+            md: 1       
           },
           width: { 
-            xs: '100%',    // Mobile: 100% ancho
+            xs: '100%',   
             sm:'auto',
-            md: 'auto'     // Desktop: ancho automático
+            md: 'auto'     
           }
         }}>
           <ListaMasPopulares />
         </Box>
 
-        {/* SEGUNDO COMPONENTE - 50% ancho en desktop */}
+        {/* componente mejorpuntadas */}
         <Box sx={{ 
           flex: { 
-            xs: 'none',    // Mobile: ancho completo
+            xs: 'none',    
             sm:1,
-            md: 1          // Desktop: ocupa 1 parte del espacio
+            md: 1          
           },
           width: { 
-            xs: '100%',    // Mobile: 100% ancho
+            xs: '100%', 
             sm:'auto',
-            md: 'auto'     // Desktop: ancho automático
+            md: 'auto'     
           }
         }}>
           <ListaMejorPuntadas />
