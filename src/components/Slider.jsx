@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import usePeliculas from "../hooks/usePeliculas";
+import { useNavigate } from 'react-router';
 
 import { Card, CardMedia, Typography, Box } from '@mui/material';
 
@@ -12,6 +13,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 function Slider() {
 
   const { pelis, obtenerPeliculas } = usePeliculas();
+  const navigate = useNavigate();
 
 useEffect(() => {
   
@@ -39,7 +41,9 @@ useEffect(() => {
       paddingTop: 1,
       borderRadius: 0,
       boxShadow: 3
-    }}>
+    }}
+    onClick={() => navigate(`/pelicula/${peli.id}`)}
+    >
 
       <CardMedia
         component="img"

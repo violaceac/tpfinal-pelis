@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router';
 
 import AppBar from '@mui/material/AppBar';
@@ -13,7 +13,7 @@ import Container from '@mui/material/Container';
 import AdbIcon from '@mui/icons-material/Adb';
 
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import { FavoriteContext } from '../context/FavoriteContext';
+
 import { MenuItem } from '@mui/material';
 
 

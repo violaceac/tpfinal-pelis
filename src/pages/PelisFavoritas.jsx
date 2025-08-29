@@ -7,8 +7,7 @@ import {
   Card,
   CardMedia,
   CardContent,
-  Button,
-  IconButton
+  Button
 } from '@mui/material';
 
 import { useNavigate } from 'react-router';
