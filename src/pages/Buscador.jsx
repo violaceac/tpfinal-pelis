@@ -1,5 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { useNavigate } from 'react-router';
+
+
 import usePeliculas from "../hooks/usePeliculas";
 import { FavoriteContext } from '../context/FavoriteContext';
 
@@ -12,7 +14,9 @@ function mostrarBusqueda() {
   const { pelis, loading, error, buscarPeliculas } = usePeliculas();
   const [textoBusqueda, setTextoBusqueda] = useState("");
   const { isFavorite, handleFavoriteClick } = useContext(FavoriteContext);
+
   const navigate = useNavigate();
+
 
 
   // cada vez que cambia el search, hago la búsqueda
@@ -88,6 +92,7 @@ function mostrarBusqueda() {
                     borderRadius: '0 !important'
                   }}
                   onClick={() => navigate(`/pelicula/${peli.id}`)}
+
                  
                 />
               
